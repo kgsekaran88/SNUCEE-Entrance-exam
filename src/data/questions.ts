@@ -1,7 +1,7 @@
 export interface Question {
   id: string;
   year: number;
-  section: "logical-reasoning" | "quantitative-aptitude" | "apt-maths" | "apt-physics";
+  section: "logical-reasoning" | "quantitative-aptitude" | "apt-maths" | "apt-physics" | "apt-chemistry" | "apt-cse";
   part: "A" | "B";
   questionNumber: number;
   questionText: string;
@@ -9,6 +9,8 @@ export interface Question {
   correctAnswer: string;
   explanation: string;
   chapter?: string;
+  source?: "official" | "prepared";
+  topic?: string;
 }
 
 // ============================================================
@@ -1831,6 +1833,860 @@ const apt2026Physics: Question[] = [
 ];
 
 // ============================================================
+// PREPARED QUESTIONS – Chemistry (Engineering Stream)
+// ============================================================
+
+const preparedChemistry: Question[] = [
+  {
+    id: "prep-chem-1",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 1,
+    questionText:
+      "In a face-centred cubic (FCC) unit cell of a metal, each corner atom is shared among 8 unit cells and each face-centred atom is shared between 2 unit cells.\n\nWhat is the effective number of atoms per unit cell in an FCC lattice?",
+    options: [
+      { label: "A", text: "1" },
+      { label: "B", text: "2" },
+      { label: "C", text: "4" },
+      { label: "D", text: "6" },
+    ],
+    correctAnswer: "C",
+    explanation:
+      "In an FCC unit cell:\n• Corner atoms: 8 corners × (1/8 share each) = 1 atom\n• Face-centred atoms: 6 faces × (1/2 share each) = 3 atoms\n\nTotal effective atoms = 1 + 3 = 4 atoms per unit cell.\n\nOption C is correct.",
+    chapter: "Solid State - Crystal Structures",
+    source: "prepared",
+    topic: "Solid State",
+  },
+  {
+    id: "prep-chem-2",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 2,
+    questionText:
+      "A solution is prepared by dissolving 18 g of glucose (C₆H₁₂O₆, molar mass = 180 g/mol) in 500 g of water. The density of the solution is 1.02 g/mL.\n\nWhat is the molarity of the glucose solution?",
+    options: [
+      { label: "A", text: "0.10 M" },
+      { label: "B", text: "0.20 M" },
+      { label: "C", text: "0.39 M" },
+      { label: "D", text: "0.50 M" },
+    ],
+    correctAnswer: "B",
+    explanation:
+      "Moles of glucose = 18/180 = 0.1 mol\nMass of solution = 18 + 500 = 518 g\nVolume of solution = 518/1.02 = 507.8 mL ≈ 0.508 L\n\nMolarity = moles/volume(L) = 0.1/0.508 ≈ 0.197 ≈ 0.20 M\n\nOption B is correct.",
+    chapter: "Solutions - Concentration Units",
+    source: "prepared",
+    topic: "Solutions",
+  },
+  {
+    id: "prep-chem-3",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 3,
+    questionText:
+      "In an electrochemical cell, a zinc electrode is dipped in 1 M ZnSO₄ and a copper electrode is dipped in 1 M CuSO₄. The two half-cells are connected by a salt bridge.\n\nGiven: E°(Zn²⁺/Zn) = −0.76 V, E°(Cu²⁺/Cu) = +0.34 V\n\nWhat is the standard EMF of this galvanic cell?",
+    options: [
+      { label: "A", text: "0.42 V" },
+      { label: "B", text: "1.10 V" },
+      { label: "C", text: "0.76 V" },
+      { label: "D", text: "1.52 V" },
+    ],
+    correctAnswer: "B",
+    explanation:
+      "Standard EMF (E°cell) = E°cathode − E°anode\n\nZinc is oxidised (anode): E°anode = −0.76 V\nCopper is reduced (cathode): E°cathode = +0.34 V\n\nE°cell = +0.34 − (−0.76) = +0.34 + 0.76 = 1.10 V\n\nOption B is correct.",
+    chapter: "Electrochemistry - Galvanic Cells & EMF",
+    source: "prepared",
+    topic: "Electrochemistry",
+  },
+  {
+    id: "prep-chem-4",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 4,
+    questionText:
+      "Gold sol is a lyophobic colloid. When a small amount of electrolyte like NaCl is added to a gold sol, the colloidal particles aggregate and settle down.\n\nThis phenomenon is known as:",
+    options: [
+      { label: "A", text: "Peptization" },
+      { label: "B", text: "Dialysis" },
+      { label: "C", text: "Coagulation" },
+      { label: "D", text: "Emulsification" },
+    ],
+    correctAnswer: "C",
+    explanation:
+      "When an electrolyte is added to a lyophobic sol, the ions neutralise the charge on the colloidal particles. This destabilises the sol and causes particles to aggregate and settle — this process is called coagulation (or flocculation).\n\n• Peptization is the reverse — converting a precipitate into a colloid.\n• Dialysis is the removal of dissolved ions from a colloid through a semipermeable membrane.\n• Emulsification is the process of making an emulsion.\n\nOption C is correct.",
+    chapter: "Surface Chemistry - Colloids",
+    source: "prepared",
+    topic: "Surface Chemistry",
+  },
+  {
+    id: "prep-chem-5",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 5,
+    questionText:
+      "For a first-order reaction, the rate constant k = 6.93 × 10⁻³ min⁻¹.\n\nHow long will it take for 75% of the reactant to be consumed?",
+    options: [
+      { label: "A", text: "100 min" },
+      { label: "B", text: "200 min" },
+      { label: "C", text: "300 min" },
+      { label: "D", text: "400 min" },
+    ],
+    correctAnswer: "B",
+    explanation:
+      "For a first-order reaction: t = (2.303/k) × log([A₀]/[A])\n\nIf 75% is consumed, 25% remains: [A]/[A₀] = 0.25\n\nt = (2.303 / 6.93 × 10⁻³) × log(1/0.25)\nt = (2.303 / 6.93 × 10⁻³) × log(4)\nt = 332.4 × 0.602\nt ≈ 200 min\n\nOption B is correct.",
+    chapter: "Chemical Kinetics - First Order Reactions",
+    source: "prepared",
+    topic: "Chemical Kinetics",
+  },
+  {
+    id: "prep-chem-6",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 6,
+    questionText:
+      "For the reaction N₂(g) + 3H₂(g) ⇌ 2NH₃(g), the standard enthalpy change ΔH° = −92.4 kJ/mol and the standard entropy change ΔS° = −198.3 J/(mol·K).\n\nAt what temperature does this reaction become non-spontaneous (ΔG° > 0)?",
+    options: [
+      { label: "A", text: "Above 466 K" },
+      { label: "B", text: "Above 298 K" },
+      { label: "C", text: "Below 466 K" },
+      { label: "D", text: "At all temperatures" },
+    ],
+    correctAnswer: "A",
+    explanation:
+      "ΔG° = ΔH° − TΔS°\n\nFor the reaction to become non-spontaneous: ΔG° > 0\nΔH° − TΔS° > 0\n\nSince ΔH° is negative and ΔS° is also negative:\n−92400 − T(−198.3) > 0\n−92400 + 198.3T > 0\nT > 92400/198.3\nT > 466 K\n\nAbove 466 K, the TΔS° term dominates and makes ΔG° positive → non-spontaneous.\n\nOption A is correct.",
+    chapter: "Thermodynamics - Gibbs Free Energy",
+    source: "prepared",
+    topic: "Thermodynamics",
+  },
+  {
+    id: "prep-chem-7",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 7,
+    questionText:
+      "Consider the following thermodynamic data for the dissolution of a salt in water:\nΔH(dissolution) = −25 kJ/mol\nΔS(dissolution) = +50 J/(mol·K)\n\nWhich statement correctly describes the spontaneity of this process?",
+    options: [
+      { label: "A", text: "Spontaneous only at high temperatures" },
+      { label: "B", text: "Spontaneous only at low temperatures" },
+      { label: "C", text: "Spontaneous at all temperatures" },
+      { label: "D", text: "Non-spontaneous at all temperatures" },
+    ],
+    correctAnswer: "C",
+    explanation:
+      "ΔG = ΔH − TΔS\n\nHere ΔH is negative (exothermic) and ΔS is positive (increase in disorder).\n\nΔG = (−25000) − T(+50) = −25000 − 50T\n\nSince both terms are negative for all positive T, ΔG is always negative.\nTherefore, the process is spontaneous at all temperatures.\n\nOption C is correct.",
+    chapter: "Thermodynamics - Spontaneity & Free Energy",
+    source: "prepared",
+    topic: "Thermodynamics",
+  },
+  {
+    id: "prep-chem-8",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 8,
+    questionText:
+      "In the extraction of aluminium by the Hall-Héroult process, purified alumina (Al₂O₃) is dissolved in molten cryolite (Na₃AlF₆) and electrolysed.\n\nWhat is the primary reason for using cryolite in this process?",
+    options: [
+      { label: "A", text: "It acts as the cathode material." },
+      { label: "B", text: "It lowers the melting point of alumina from ~2050°C to ~950°C." },
+      { label: "C", text: "It provides fluoride ions needed for the reduction." },
+      { label: "D", text: "It prevents oxidation of aluminium at the cathode." },
+    ],
+    correctAnswer: "B",
+    explanation:
+      "Pure alumina has a very high melting point (~2050°C), making direct electrolysis impractical and energy-intensive.\n\nCryolite (Na₃AlF₆) is added as a flux — it dissolves alumina and lowers the effective melting point of the mixture to about 950°C, making the electrolysis economically feasible.\n\nCryolite does not participate in the electrode reactions and is not a cathode material.\n\nOption B is correct.",
+    chapter: "Isolation of Elements - Metallurgy of Aluminium",
+    source: "prepared",
+    topic: "Isolation of Elements",
+  },
+  {
+    id: "prep-chem-9",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 9,
+    questionText:
+      "Consider the elements of Period 3: Na, Mg, Al, Si, P, S, Cl.\n\nWhich of the following correctly describes the trend in electronegativity across this period?",
+    options: [
+      { label: "A", text: "Electronegativity decreases from Na to Cl." },
+      { label: "B", text: "Electronegativity increases from Na to Cl." },
+      { label: "C", text: "Electronegativity first increases then decreases." },
+      { label: "D", text: "Electronegativity remains constant across the period." },
+    ],
+    correctAnswer: "B",
+    explanation:
+      "Across a period (left to right), the nuclear charge increases while the shielding effect remains roughly the same (electrons are added to the same shell).\n\nThis means the effective nuclear charge increases → atoms hold their electrons more tightly → electronegativity increases.\n\nNa (0.93) < Mg (1.31) < Al (1.61) < Si (1.90) < P (2.19) < S (2.58) < Cl (3.16) on the Pauling scale.\n\nOption B is correct.",
+    chapter: "Periodic Table - Periodic Trends",
+    source: "prepared",
+    topic: "Periodic Table",
+  },
+  {
+    id: "prep-chem-10",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 10,
+    questionText:
+      "Sulphur dioxide (SO₂) is a major air pollutant produced by burning fossil fuels. When SO₂ dissolves in rainwater, it can form sulphurous acid.\n\nSO₂ can act as both an oxidising agent and a reducing agent. In which of the following reactions does SO₂ act as a reducing agent?",
+    options: [
+      { label: "A", text: "SO₂ + 2H₂S → 3S + 2H₂O" },
+      { label: "B", text: "SO₂ + 2NaOH → Na₂SO₃ + H₂O" },
+      { label: "C", text: "SO₂ + Cl₂ + 2H₂O → H₂SO₄ + 2HCl" },
+      { label: "D", text: "SO₂ + H₂O → H₂SO₃" },
+    ],
+    correctAnswer: "C",
+    explanation:
+      "In SO₂, sulphur has an oxidation state of +4.\n\nA reducing agent gets oxidised (its oxidation state increases).\n\n• In option A: SO₂ → S (oxidation state goes from +4 to 0) — SO₂ is reduced → it acts as an oxidising agent.\n• In option B: SO₂ → SO₃²⁻ (S remains +4) — acid-base reaction, no redox.\n• In option C: SO₂ → H₂SO₄ (S goes from +4 to +6) — SO₂ is oxidised → it acts as a reducing agent. ✓\n• In option D: SO₂ → H₂SO₃ (S remains +4) — no change in oxidation state.\n\nOption C is correct.",
+    chapter: "p-Block Elements - Chemistry of Sulphur",
+    source: "prepared",
+    topic: "p-Block Elements",
+  },
+  {
+    id: "prep-chem-11",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 11,
+    questionText:
+      "Phosphorus exists in several allotropic forms. White phosphorus (P₄) is highly reactive and toxic, while red phosphorus is relatively stable.\n\nWhich of the following statements about the structure of white phosphorus is correct?",
+    options: [
+      { label: "A", text: "It has a planar square structure with 90° bond angles." },
+      { label: "B", text: "It has a tetrahedral P₄ structure with 60° bond angles, causing ring strain." },
+      { label: "C", text: "It has a linear chain structure with 180° bond angles." },
+      { label: "D", text: "It has a trigonal pyramidal structure like ammonia." },
+    ],
+    correctAnswer: "B",
+    explanation:
+      "White phosphorus (P₄) has a tetrahedral structure where 4 phosphorus atoms are positioned at the corners of a tetrahedron. Each P atom is bonded to the other three.\n\nThe P–P–P bond angles are only 60° (much less than the ideal tetrahedral angle of 109.5°), which creates significant angular (ring) strain. This strain is what makes white phosphorus highly reactive and unstable.\n\nOption B is correct.",
+    chapter: "p-Block Elements - Allotropy of Phosphorus",
+    source: "prepared",
+    topic: "p-Block Elements",
+  },
+  {
+    id: "prep-chem-12",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 12,
+    questionText:
+      "Transition metals are known for forming coloured compounds. The colour arises due to d–d electronic transitions when visible light is absorbed.\n\n[Ti(H₂O)₆]³⁺ appears purple because it absorbs light in a certain region of the visible spectrum.\n\nWhich of the following transition metal ions would be colourless in aqueous solution?",
+    options: [
+      { label: "A", text: "Cu²⁺ (3d⁹)" },
+      { label: "B", text: "Fe³⁺ (3d⁵)" },
+      { label: "C", text: "Zn²⁺ (3d¹⁰)" },
+      { label: "D", text: "Cr³⁺ (3d³)" },
+    ],
+    correctAnswer: "C",
+    explanation:
+      "Colour in transition metal complexes arises from d–d transitions, where an electron jumps from a lower-energy d-orbital to a higher-energy d-orbital.\n\nFor d–d transitions to occur, there must be:\n1. Partially filled d-orbitals\n2. Vacant d-orbitals for the electron to jump to\n\nZn²⁺ has a fully filled 3d¹⁰ configuration — no vacant d-orbital is available for d–d transitions. Therefore, Zn²⁺ complexes are colourless.\n\nCu²⁺ (3d⁹), Fe³⁺ (3d⁵), and Cr³⁺ (3d³) all have partially filled d-orbitals and form coloured complexes.\n\nOption C is correct.",
+    chapter: "d- and f-Block Elements - Colour of Transition Metal Ions",
+    source: "prepared",
+    topic: "d- and f-Block Elements",
+  },
+  {
+    id: "prep-chem-13",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 13,
+    questionText:
+      "The complex ion [Co(NH₃)₄Cl₂]⁺ can exist as two geometric isomers — cis and trans.\n\nIn the cis isomer, the two Cl⁻ ligands are adjacent to each other, while in the trans isomer they are opposite.\n\nWhat is the coordination number and geometry of the central cobalt ion in this complex?",
+    options: [
+      { label: "A", text: "Coordination number 4, tetrahedral geometry" },
+      { label: "B", text: "Coordination number 4, square planar geometry" },
+      { label: "C", text: "Coordination number 6, octahedral geometry" },
+      { label: "D", text: "Coordination number 6, trigonal prismatic geometry" },
+    ],
+    correctAnswer: "C",
+    explanation:
+      "The complex [Co(NH₃)₄Cl₂]⁺ has:\n• 4 NH₃ ligands (each monodentate)\n• 2 Cl⁻ ligands (each monodentate)\n• Total ligands = 6\n\nCoordination number = 6, and with 6 ligands the geometry is octahedral.\n\nOctahedral complexes with formula [Ma₄b₂] can show cis-trans (geometric) isomerism, which is consistent with the given information.\n\nOption C is correct.",
+    chapter: "Coordination Compounds - Geometry & Isomerism",
+    source: "prepared",
+    topic: "Coordination Compounds",
+  },
+  {
+    id: "prep-chem-14",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 14,
+    questionText:
+      "According to the Spectrochemical Series, ligands are arranged in order of their crystal field splitting energy (Δ). A stronger field ligand causes greater splitting.\n\nWhich of the following represents the correct order of crystal field splitting strength?",
+    options: [
+      { label: "A", text: "I⁻ < Br⁻ < Cl⁻ < F⁻ < H₂O < NH₃ < CO" },
+      { label: "B", text: "CO < NH₃ < H₂O < F⁻ < Cl⁻ < Br⁻ < I⁻" },
+      { label: "C", text: "F⁻ < Cl⁻ < H₂O < NH₃ < CO < Br⁻ < I⁻" },
+      { label: "D", text: "NH₃ < CO < H₂O < F⁻ < Cl⁻ < Br⁻ < I⁻" },
+    ],
+    correctAnswer: "A",
+    explanation:
+      "The Spectrochemical Series arranges ligands in increasing order of crystal field splitting energy (Δ):\n\nI⁻ < Br⁻ < Cl⁻ < F⁻ < OH⁻ < H₂O < NH₃ < en < NO₂⁻ < CN⁻ < CO\n\n• Weak field ligands (halides): cause small splitting → high-spin complexes\n• Strong field ligands (CN⁻, CO): cause large splitting → low-spin complexes\n\nOption A correctly shows: I⁻ < Br⁻ < Cl⁻ < F⁻ < H₂O < NH₃ < CO\n\nOption A is correct.",
+    chapter: "Coordination Compounds - Crystal Field Theory",
+    source: "prepared",
+    topic: "Coordination Compounds",
+  },
+  {
+    id: "prep-chem-15",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 15,
+    questionText:
+      "A student performs steam distillation to separate a mixture of aniline and water. Aniline (boiling point 184°C) distils over with steam at a temperature below 100°C.\n\nWhat is the principle behind steam distillation?",
+    options: [
+      { label: "A", text: "The mixture boils when the sum of the vapour pressures of both components equals atmospheric pressure." },
+      { label: "B", text: "Steam acts as a catalyst to reduce the boiling point of aniline." },
+      { label: "C", text: "Aniline dissolves in steam and is carried over as a solution." },
+      { label: "D", text: "The hydrogen bonds between steam and aniline lower the activation energy of vaporisation." },
+    ],
+    correctAnswer: "A",
+    explanation:
+      "Steam distillation is used to separate immiscible liquids that decompose near their boiling points.\n\nPrinciple: For a mixture of two immiscible liquids, each component exerts its own vapour pressure independently. The mixture boils when:\n\nP(water) + P(aniline) = P(atmospheric)\n\nSince both contribute to the total pressure, the mixture boils at a temperature LOWER than the boiling point of either pure component. This allows aniline (bp 184°C) to distil below 100°C.\n\nOption A is correct.",
+    chapter: "Organic Chemistry Techniques - Purification Methods",
+    source: "prepared",
+    topic: "Organic Chemistry Techniques",
+  },
+  {
+    id: "prep-chem-16",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 16,
+    questionText:
+      "Ethanol (CH₃CH₂OH) and dimethyl ether (CH₃OCH₃) are functional group isomers with the same molecular formula C₂H₆O. However, ethanol has a much higher boiling point (78°C) compared to dimethyl ether (−25°C).\n\nWhat is the primary reason for this difference?",
+    options: [
+      { label: "A", text: "Ethanol has a higher molecular mass." },
+      { label: "B", text: "Ethanol can form intermolecular hydrogen bonds, while dimethyl ether cannot." },
+      { label: "C", text: "Dimethyl ether has a more symmetrical structure." },
+      { label: "D", text: "Ethanol has stronger C–H bonds than dimethyl ether." },
+    ],
+    correctAnswer: "B",
+    explanation:
+      "Both ethanol and dimethyl ether have the same molecular formula (C₂H₆O) and hence the same molecular mass.\n\nEthanol has an –OH group that can form strong intermolecular hydrogen bonds (O–H···O) with neighbouring ethanol molecules.\n\nDimethyl ether (CH₃–O–CH₃) has no O–H bond, so it cannot act as a hydrogen bond donor. It can only have weaker dipole-dipole and London dispersion forces.\n\nStronger intermolecular forces in ethanol → higher boiling point.\n\nOption B is correct.",
+    chapter: "Organic Compounds - Alcohols vs Ethers",
+    source: "prepared",
+    topic: "Organic Compounds",
+  },
+  {
+    id: "prep-chem-17",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 17,
+    questionText:
+      "Phenol (C₆H₅OH) is a weaker acid than carboxylic acids but a stronger acid than alcohols like ethanol.\n\nThe greater acidity of phenol compared to ethanol is primarily due to:",
+    options: [
+      { label: "A", text: "The inductive effect of the benzene ring withdrawing electron density from the O–H bond." },
+      { label: "B", text: "Resonance stabilisation of the phenoxide ion (C₆H₅O⁻) by delocalisation of the negative charge over the aromatic ring." },
+      { label: "C", text: "The higher molecular mass of phenol compared to ethanol." },
+      { label: "D", text: "Hyperconjugation in the phenol molecule." },
+    ],
+    correctAnswer: "B",
+    explanation:
+      "When phenol loses a proton, the resulting phenoxide ion (C₆H₅O⁻) is stabilised by resonance — the negative charge on oxygen is delocalised over the benzene ring through the π-electron system.\n\nThis resonance stabilisation of the conjugate base makes it easier for phenol to donate a proton → phenol is a stronger acid.\n\nEthanol's conjugate base (C₂H₅O⁻) cannot stabilise the negative charge by resonance — the charge remains localised on oxygen.\n\nWhile the inductive effect (option A) plays a minor role, the dominant factor is resonance stabilisation.\n\nOption B is correct.",
+    chapter: "Organic Compounds - Acidity of Phenols",
+    source: "prepared",
+    topic: "Organic Compounds",
+  },
+  {
+    id: "prep-chem-18",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 18,
+    questionText:
+      "Soaps are sodium or potassium salts of long-chain fatty acids (e.g., sodium stearate, C₁₇H₃₅COONa). They are effective cleansing agents in soft water but form insoluble curds in hard water.\n\nWhat causes soap to form scum in hard water?",
+    options: [
+      { label: "A", text: "Ca²⁺ and Mg²⁺ ions in hard water react with soap to form insoluble calcium and magnesium salts of fatty acids." },
+      { label: "B", text: "The pH of hard water is too low for soap to function." },
+      { label: "C", text: "Hard water denatures the soap molecules, destroying their cleaning ability." },
+      { label: "D", text: "The high mineral content of hard water prevents micelle formation by increasing surface tension." },
+    ],
+    correctAnswer: "A",
+    explanation:
+      "Hard water contains dissolved Ca²⁺ and Mg²⁺ ions. When soap (e.g., sodium stearate) is added:\n\n2C₁₇H₃₅COO⁻(aq) + Ca²⁺(aq) → (C₁₇H₃₅COO)₂Ca(s) ↓\n\nThe calcium stearate formed is insoluble — it precipitates as a white scum/curd. This wastes soap and leaves deposits on fabrics.\n\nDetergents (sodium alkyl sulphates) do not form insoluble salts with Ca²⁺/Mg²⁺, which is why they work in hard water.\n\nOption A is correct.",
+    chapter: "Chemistry in Everyday Life - Soaps & Detergents",
+    source: "prepared",
+    topic: "Chemistry in Everyday Life",
+  },
+  {
+    id: "prep-chem-19",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 19,
+    questionText:
+      "Proteins are polymers of α-amino acids linked by peptide bonds. The primary structure of a protein is defined by the sequence of amino acids in the polypeptide chain.\n\nA peptide bond is formed between:",
+    options: [
+      { label: "A", text: "The –NH₂ group of one amino acid and the –COOH group of another, with the loss of H₂O." },
+      { label: "B", text: "Two –NH₂ groups of adjacent amino acids." },
+      { label: "C", text: "Two –COOH groups of adjacent amino acids." },
+      { label: "D", text: "The –R group (side chain) of one amino acid and the –NH₂ group of another." },
+    ],
+    correctAnswer: "A",
+    explanation:
+      "A peptide bond is an amide bond formed by a condensation reaction between:\n• The –COOH (carboxyl) group of one amino acid\n• The –NH₂ (amino) group of the adjacent amino acid\n\nThis reaction releases one molecule of water (H₂O):\n\nH₂N–CHR₁–COOH + H₂N–CHR₂–COOH → H₂N–CHR₁–CO–NH–CHR₂–COOH + H₂O\n\nThe resulting –CO–NH– linkage is the peptide bond.\n\nOption A is correct.",
+    chapter: "Biomolecules - Proteins & Amino Acids",
+    source: "prepared",
+    topic: "Biomolecules",
+  },
+  {
+    id: "prep-chem-20",
+    year: 2025,
+    section: "apt-chemistry",
+    part: "B",
+    questionNumber: 20,
+    questionText:
+      "DNA (deoxyribonucleic acid) consists of two polynucleotide strands wound around each other in a double helix. The two strands are held together by hydrogen bonds between complementary nitrogenous bases.\n\nIf a segment of one DNA strand has the base sequence 5'-ATGCCA-3', what is the base sequence of the complementary strand?",
+    options: [
+      { label: "A", text: "5'-TGGCAT-3'" },
+      { label: "B", text: "3'-TGGCAT-5'" },
+      { label: "C", text: "5'-UACGGU-3'" },
+      { label: "D", text: "3'-ATGCCA-5'" },
+    ],
+    correctAnswer: "B",
+    explanation:
+      "DNA base pairing rules (Chargaff's rules):\n• Adenine (A) pairs with Thymine (T) — 2 hydrogen bonds\n• Guanine (G) pairs with Cytosine (C) — 3 hydrogen bonds\n\nThe two strands run antiparallel (one 5'→3', the other 3'→5').\n\nGiven strand:       5'-A T G C C A-3'\nComplementary:      3'-T A C G G T-5'\n\nReading the complementary strand from 3' to 5': TGGCAT → written as 3'-TGGCAT-5'\n\nNote: Option C uses Uracil (U), which is found in RNA, not DNA.\n\nOption B is correct.",
+    chapter: "Biomolecules - Nucleic Acids & DNA Structure",
+    source: "prepared",
+    topic: "Biomolecules",
+  },
+];
+
+// ============================================================
+// PREPARED QUESTIONS – Computer Science / Python (Engineering Stream)
+// ============================================================
+
+const preparedCSE: Question[] = [
+  {
+    id: "prep-cse-1",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 1,
+    questionText:
+      "Consider the following Python code:\n\nx = 10\ny = 3\nprint(x // y, x % y, x ** y)\n\nWhat will be the output?",
+    options: [
+      { label: "A", text: "3 1 1000" },
+      { label: "B", text: "3.33 1 30" },
+      { label: "C", text: "3 1 30" },
+      { label: "D", text: "3.0 1.0 1000" },
+    ],
+    correctAnswer: "A",
+    explanation:
+      "Let's evaluate each operation:\n• x // y = 10 // 3 = 3 (integer/floor division — rounds down to nearest integer)\n• x % y = 10 % 3 = 1 (modulus — remainder after division)\n• x ** y = 10 ** 3 = 1000 (exponentiation — 10 raised to the power 3)\n\nOutput: 3 1 1000\n\nOption A is correct.",
+    chapter: "Python - Data Types & Arithmetic Operators",
+    source: "prepared",
+    topic: "Data Types & Operators",
+  },
+  {
+    id: "prep-cse-2",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 2,
+    questionText:
+      'What is the output of the following Python code?\n\na = "Hello"\nb = 5\nprint(type(a), type(b))\nprint(isinstance(a, str) and isinstance(b, int))',
+    options: [
+      { label: "A", text: "<class 'str'> <class 'int'>\\nTrue" },
+      { label: "B", text: "str int\\nTrue" },
+      { label: "C", text: "<class 'str'> <class 'int'>\\nFalse" },
+      { label: "D", text: "String Integer\\n1" },
+    ],
+    correctAnswer: "A",
+    explanation:
+      "• type(a) returns <class 'str'> since \"Hello\" is a string\n• type(b) returns <class 'int'> since 5 is an integer\n• isinstance(a, str) → True (a is a string)\n• isinstance(b, int) → True (b is an integer)\n• True and True → True\n\nOutput:\n<class 'str'> <class 'int'>\nTrue\n\nOption A is correct.",
+    chapter: "Python - Data Types & Type Checking",
+    source: "prepared",
+    topic: "Data Types & Operators",
+  },
+  {
+    id: "prep-cse-3",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 3,
+    questionText:
+      'Consider the following Python code:\n\nmarks = 72\n\nif marks >= 90:\n    grade = "A+"\nelif marks >= 80:\n    grade = "A"\nelif marks >= 70:\n    grade = "B"\nelif marks >= 60:\n    grade = "C"\nelse:\n    grade = "F"\n\nprint(grade)\n\nWhat will be the output?',
+    options: [
+      { label: "A", text: "A+" },
+      { label: "B", text: "A" },
+      { label: "C", text: "B" },
+      { label: "D", text: "C" },
+    ],
+    correctAnswer: "C",
+    explanation:
+      "Python evaluates if-elif-else chains from top to bottom and executes the FIRST matching condition:\n\n1. marks >= 90 → 72 >= 90 → False\n2. marks >= 80 → 72 >= 80 → False\n3. marks >= 70 → 72 >= 70 → True ✓ → grade = \"B\"\n\nOnce a condition matches, the remaining elif/else blocks are skipped.\n\nOutput: B\n\nOption C is correct.",
+    chapter: "Python - Conditional Statements",
+    source: "prepared",
+    topic: "Conditionals",
+  },
+  {
+    id: "prep-cse-4",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 4,
+    questionText:
+      "What will the following Python code print?\n\nx = 15\nresult = \"Fizz\" if x % 3 == 0 else \"\"\nresult += \"Buzz\" if x % 5 == 0 else \"\"\nprint(result if result else x)",
+    options: [
+      { label: "A", text: "Fizz" },
+      { label: "B", text: "Buzz" },
+      { label: "C", text: "FizzBuzz" },
+      { label: "D", text: "15" },
+    ],
+    correctAnswer: "C",
+    explanation:
+      "Step by step:\n1. x = 15\n2. x % 3 == 0 → 15 % 3 == 0 → True → result = \"Fizz\"\n3. x % 5 == 0 → 15 % 5 == 0 → True → result += \"Buzz\" → result = \"FizzBuzz\"\n4. result is \"FizzBuzz\" (truthy) → print(result) → prints \"FizzBuzz\"\n\nThis is the classic FizzBuzz problem using Python's ternary conditional expressions.\n\nOption C is correct.",
+    chapter: "Python - Conditional Expressions (Ternary)",
+    source: "prepared",
+    topic: "Conditionals",
+  },
+  {
+    id: "prep-cse-5",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 5,
+    questionText:
+      "What is the output of the following Python code?\n\ntotal = 0\nfor i in range(1, 6):\n    if i % 2 == 0:\n        continue\n    total += i\nprint(total)",
+    options: [
+      { label: "A", text: "15" },
+      { label: "B", text: "9" },
+      { label: "C", text: "6" },
+      { label: "D", text: "5" },
+    ],
+    correctAnswer: "B",
+    explanation:
+      "range(1, 6) generates: 1, 2, 3, 4, 5\n\nThe loop adds only odd numbers (continue skips even numbers):\n• i=1: 1 % 2 ≠ 0 → total = 0 + 1 = 1\n• i=2: 2 % 2 == 0 → continue (skip)\n• i=3: 3 % 2 ≠ 0 → total = 1 + 3 = 4\n• i=4: 4 % 2 == 0 → continue (skip)\n• i=5: 5 % 2 ≠ 0 → total = 4 + 5 = 9\n\nOutput: 9 (sum of odd numbers 1 + 3 + 5)\n\nOption B is correct.",
+    chapter: "Python - Loops & Control Flow",
+    source: "prepared",
+    topic: "Iterations",
+  },
+  {
+    id: "prep-cse-6",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 6,
+    questionText:
+      "What will the following Python code print?\n\ncount = 0\nn = 256\nwhile n > 0:\n    n = n // 2\n    count += 1\nprint(count)",
+    options: [
+      { label: "A", text: "7" },
+      { label: "B", text: "8" },
+      { label: "C", text: "9" },
+      { label: "D", text: "256" },
+    ],
+    correctAnswer: "B",
+    explanation:
+      "The while loop repeatedly halves n using integer division:\n\nn: 256 → 128 → 64 → 32 → 16 → 8 → 4 → 2 → 1 → 0\ncount: 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8\n\nWhen n becomes 0, the loop exits.\n\nThis is equivalent to finding log₂(256) = 8.\n\nOutput: 8\n\nOption B is correct.",
+    chapter: "Python - While Loops & Integer Division",
+    source: "prepared",
+    topic: "Iterations",
+  },
+  {
+    id: "prep-cse-7",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 7,
+    questionText:
+      "Consider the following nested loop in Python:\n\nresult = []\nfor i in range(3):\n    for j in range(3):\n        if i == j:\n            result.append((i, j))\nprint(result)",
+    options: [
+      { label: "A", text: "[(0, 0), (1, 1), (2, 2)]" },
+      { label: "B", text: "[(0, 0), (0, 1), (0, 2), (1, 0), (1, 1), (1, 2)]" },
+      { label: "C", text: "[(0, 1), (0, 2), (1, 2)]" },
+      { label: "D", text: "[(0, 0)]" },
+    ],
+    correctAnswer: "A",
+    explanation:
+      "The nested loops iterate over all pairs (i, j) where i and j range from 0 to 2.\n\nThe condition i == j is only true for diagonal elements:\n• i=0, j=0: 0 == 0 → True → append (0, 0)\n• i=0, j=1: 0 ≠ 1\n• i=0, j=2: 0 ≠ 2\n• i=1, j=0: 1 ≠ 0\n• i=1, j=1: 1 == 1 → True → append (1, 1)\n• i=1, j=2: 1 ≠ 2\n• i=2, j=0: 2 ≠ 0\n• i=2, j=1: 2 ≠ 1\n• i=2, j=2: 2 == 2 → True → append (2, 2)\n\nOutput: [(0, 0), (1, 1), (2, 2)]\n\nOption A is correct.",
+    chapter: "Python - Nested Loops & Tuples",
+    source: "prepared",
+    topic: "Iterations",
+  },
+  {
+    id: "prep-cse-8",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 8,
+    questionText:
+      "What is the output of the following Python code?\n\ndef power(base, exp):\n    if exp == 0:\n        return 1\n    return base * power(base, exp - 1)\n\nprint(power(2, 5))",
+    options: [
+      { label: "A", text: "10" },
+      { label: "B", text: "25" },
+      { label: "C", text: "32" },
+      { label: "D", text: "64" },
+    ],
+    correctAnswer: "C",
+    explanation:
+      "This is a recursive function that computes base^exp:\n\npower(2, 5)\n= 2 * power(2, 4)\n= 2 * (2 * power(2, 3))\n= 2 * (2 * (2 * power(2, 2)))\n= 2 * (2 * (2 * (2 * power(2, 1))))\n= 2 * (2 * (2 * (2 * (2 * power(2, 0)))))\n= 2 * (2 * (2 * (2 * (2 * 1))))\n= 2 * 2 * 2 * 2 * 2 = 32\n\nBase case: exp == 0 → return 1\nRecursive case: base * power(base, exp - 1)\n\nOutput: 32 (which is 2⁵)\n\nOption C is correct.",
+    chapter: "Python - Functions & Recursion",
+    source: "prepared",
+    topic: "Functions & Recursion",
+  },
+  {
+    id: "prep-cse-9",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 9,
+    questionText:
+      "What does the following recursive Python function compute?\n\ndef mystery(n):\n    if n <= 1:\n        return n\n    return mystery(n - 1) + mystery(n - 2)\n\nprint(mystery(7))",
+    options: [
+      { label: "A", text: "7" },
+      { label: "B", text: "13" },
+      { label: "C", text: "21" },
+      { label: "D", text: "28" },
+    ],
+    correctAnswer: "B",
+    explanation:
+      "This is the Fibonacci sequence where each number is the sum of the two preceding ones:\n\nmystery(0) = 0\nmystery(1) = 1\nmystery(2) = 1 (0 + 1)\nmystery(3) = 2 (1 + 1)\nmystery(4) = 3 (2 + 1)\nmystery(5) = 5 (3 + 2)\nmystery(6) = 8 (5 + 3)\nmystery(7) = 13 (8 + 5)\n\nOutput: 13\n\nOption B is correct.",
+    chapter: "Python - Recursion & Fibonacci Sequence",
+    source: "prepared",
+    topic: "Functions & Recursion",
+  },
+  {
+    id: "prep-cse-10",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 10,
+    questionText:
+      "What is the output of the following Python code?\n\ndef greet(name, greeting=\"Hello\"):\n    return f\"{greeting}, {name}!\"\n\nprint(greet(\"Alice\"))\nprint(greet(\"Bob\", \"Hi\"))",
+    options: [
+      { label: "A", text: "Hello, Alice!\\nHi, Bob!" },
+      { label: "B", text: "Hello, Alice!\\nHello, Bob!" },
+      { label: "C", text: "Alice, Hello!\\nBob, Hi!" },
+      { label: "D", text: "Error: missing argument" },
+    ],
+    correctAnswer: "A",
+    explanation:
+      "The function greet has a default parameter greeting=\"Hello\".\n\n• greet(\"Alice\"): name=\"Alice\", greeting uses default \"Hello\" → \"Hello, Alice!\"\n• greet(\"Bob\", \"Hi\"): name=\"Bob\", greeting=\"Hi\" (overrides default) → \"Hi, Bob!\"\n\nf-strings (f\"...\") allow inline expression evaluation using curly braces.\n\nOutput:\nHello, Alice!\nHi, Bob!\n\nOption A is correct.",
+    chapter: "Python - Functions & Default Parameters",
+    source: "prepared",
+    topic: "Functions & Recursion",
+  },
+  {
+    id: "prep-cse-11",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 11,
+    questionText:
+      'What is the output of the following Python code?\n\ntext = "Python Programming"\nprint(text[0:6])\nprint(text[-11:])\nprint(text[7:].upper())',
+    options: [
+      { label: "A", text: "Python\\nProgramming\\nPROGRAMMING" },
+      { label: "B", text: "Python\\nprogramming\\nPROGRAMMING" },
+      { label: "C", text: "Pytho\\nProgramming\\n PROGRAMMING" },
+      { label: "D", text: "Python\\nProgramming\\nprogramming" },
+    ],
+    correctAnswer: "A",
+    explanation:
+      'text = "Python Programming" (length = 18)\n\n• text[0:6] → "Python" (characters at indices 0,1,2,3,4,5)\n• text[-11:] → "Programming" (last 11 characters, starting from index 7)\n• text[7:] → "Programming" → .upper() → "PROGRAMMING"\n\nOutput:\nPython\nProgramming\nPROGRAMMING\n\nOption A is correct.',
+    chapter: "Python - String Slicing & Methods",
+    source: "prepared",
+    topic: "Strings",
+  },
+  {
+    id: "prep-cse-12",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 12,
+    questionText:
+      'What is the output of the following Python code?\n\nword = "abracadabra"\nprint(word.count("a"))\nprint(word.find("cad"))\nprint(word.replace("abra", "X"))',
+    options: [
+      { label: "A", text: "5\\n4\\nXcadX" },
+      { label: "B", text: "4\\n4\\nXcadabra" },
+      { label: "C", text: "5\\n3\\nXcadX" },
+      { label: "D", text: "5\\n4\\nXcadabra" },
+    ],
+    correctAnswer: "A",
+    explanation:
+      'word = "abracadabra"\n\n• word.count("a"): Count occurrences of "a" → a(0), a(3), a(5), a(7), a(10) → 5\n• word.find("cad"): Find first index of substring "cad" → starts at index 4 (abra|cad|abra)\n• word.replace("abra", "X"): Replace ALL occurrences of "abra" → "abra"cad"abra" → "X"cad"X" → "XcadX"\n\nOutput:\n5\n4\nXcadX\n\nOption A is correct.',
+    chapter: "Python - String Methods",
+    source: "prepared",
+    topic: "Strings",
+  },
+  {
+    id: "prep-cse-13",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 13,
+    questionText:
+      "What is the output of the following Python code?\n\ns = \"hello world\"\nwords = s.split()\nresult = \"-\".join([w.capitalize() for w in words])\nprint(result)",
+    options: [
+      { label: "A", text: "Hello-World" },
+      { label: "B", text: "hello-world" },
+      { label: "C", text: "HELLO-WORLD" },
+      { label: "D", text: "Hello World" },
+    ],
+    correctAnswer: "A",
+    explanation:
+      "Step by step:\n1. s.split() → [\"hello\", \"world\"] (splits on whitespace by default)\n2. List comprehension: [w.capitalize() for w in words]\n   • \"hello\".capitalize() → \"Hello\"\n   • \"world\".capitalize() → \"World\"\n   Result: [\"Hello\", \"World\"]\n3. \"-\".join([\"Hello\", \"World\"]) → \"Hello-World\"\n\nOutput: Hello-World\n\nOption A is correct.",
+    chapter: "Python - String Methods, split(), join()",
+    source: "prepared",
+    topic: "Strings",
+  },
+  {
+    id: "prep-cse-14",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 14,
+    questionText:
+      "What is the output of the following Python code?\n\nnums = [3, 1, 4, 1, 5, 9, 2, 6]\nnums.sort()\nprint(nums)\nprint(nums[-3:])",
+    options: [
+      { label: "A", text: "[1, 1, 2, 3, 4, 5, 6, 9]\\n[5, 6, 9]" },
+      { label: "B", text: "[9, 6, 5, 4, 3, 2, 1, 1]\\n[2, 1, 1]" },
+      { label: "C", text: "[3, 1, 4, 1, 5, 9, 2, 6]\\n[2, 6]" },
+      { label: "D", text: "[1, 1, 2, 3, 4, 5, 6, 9]\\n[6, 9]" },
+    ],
+    correctAnswer: "A",
+    explanation:
+      "• nums.sort() sorts the list in-place in ascending order:\n  [3, 1, 4, 1, 5, 9, 2, 6] → [1, 1, 2, 3, 4, 5, 6, 9]\n\n• nums[-3:] gets the last 3 elements: [5, 6, 9]\n\nNote: sort() modifies the original list (in-place). sorted() would return a new list.\n\nOutput:\n[1, 1, 2, 3, 4, 5, 6, 9]\n[5, 6, 9]\n\nOption A is correct.",
+    chapter: "Python - Lists, Sorting & Slicing",
+    source: "prepared",
+    topic: "Lists",
+  },
+  {
+    id: "prep-cse-15",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 15,
+    questionText:
+      "What is the output of the following Python code?\n\nmatrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\ndiagonal_sum = sum(matrix[i][i] for i in range(3))\nprint(diagonal_sum)",
+    options: [
+      { label: "A", text: "6" },
+      { label: "B", text: "12" },
+      { label: "C", text: "15" },
+      { label: "D", text: "45" },
+    ],
+    correctAnswer: "C",
+    explanation:
+      "matrix is a 3×3 list of lists:\n[[1, 2, 3],\n [4, 5, 6],\n [7, 8, 9]]\n\nmatrix[i][i] extracts the main diagonal elements:\n• i=0: matrix[0][0] = 1\n• i=1: matrix[1][1] = 5\n• i=2: matrix[2][2] = 9\n\ndiagonal_sum = 1 + 5 + 9 = 15\n\nOutput: 15\n\nOption C is correct.",
+    chapter: "Python - Nested Lists & Comprehensions",
+    source: "prepared",
+    topic: "Lists",
+  },
+  {
+    id: "prep-cse-16",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 16,
+    questionText:
+      "What is the output of the following Python code?\n\nnums = [1, 2, 3, 4, 5]\nsquared = list(map(lambda x: x ** 2, nums))\neven_sq = list(filter(lambda x: x % 2 == 0, squared))\nprint(even_sq)",
+    options: [
+      { label: "A", text: "[4, 16]" },
+      { label: "B", text: "[1, 4, 9, 16, 25]" },
+      { label: "C", text: "[2, 4]" },
+      { label: "D", text: "[4, 8, 16]" },
+    ],
+    correctAnswer: "A",
+    explanation:
+      "Step by step:\n1. map(lambda x: x ** 2, nums) squares each element:\n   [1, 4, 9, 16, 25]\n\n2. filter(lambda x: x % 2 == 0, squared) keeps only even values:\n   • 1 % 2 = 1 → odd → remove\n   • 4 % 2 = 0 → even → keep\n   • 9 % 2 = 1 → odd → remove\n   • 16 % 2 = 0 → even → keep\n   • 25 % 2 = 1 → odd → remove\n\nResult: [4, 16]\n\nOutput: [4, 16]\n\nOption A is correct.",
+    chapter: "Python - map(), filter() & Lambda Functions",
+    source: "prepared",
+    topic: "Lists",
+  },
+  {
+    id: "prep-cse-17",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 17,
+    questionText:
+      'What is the output of the following Python code?\n\nstudent = {"name": "Priya", "marks": {"maths": 95, "physics": 88}}\nstudent["marks"]["chemistry"] = 92\nstudent["grade"] = "A"\nprint(len(student))\nprint(student["marks"]["chemistry"])',
+    options: [
+      { label: "A", text: "3\\n92" },
+      { label: "B", text: "2\\n92" },
+      { label: "C", text: "3\\n88" },
+      { label: "D", text: "4\\n92" },
+    ],
+    correctAnswer: "A",
+    explanation:
+      "Starting dictionary: {\"name\": \"Priya\", \"marks\": {\"maths\": 95, \"physics\": 88}}\n\n1. student[\"marks\"][\"chemistry\"] = 92\n   Adds \"chemistry\": 92 to the nested \"marks\" dictionary.\n   student = {\"name\": \"Priya\", \"marks\": {\"maths\": 95, \"physics\": 88, \"chemistry\": 92}}\n\n2. student[\"grade\"] = \"A\"\n   Adds a new key \"grade\" to the top-level dictionary.\n   student = {\"name\": \"Priya\", \"marks\": {...}, \"grade\": \"A\"}\n\n• len(student) = 3 (top-level keys: \"name\", \"marks\", \"grade\")\n• student[\"marks\"][\"chemistry\"] = 92\n\nOutput:\n3\n92\n\nOption A is correct.",
+    chapter: "Python - Dictionaries & Nested Structures",
+    source: "prepared",
+    topic: "Dictionaries",
+  },
+  {
+    id: "prep-cse-18",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 18,
+    questionText:
+      'What is the output of the following Python code?\n\nfrequency = {}\ntext = "hello"\nfor ch in text:\n    frequency[ch] = frequency.get(ch, 0) + 1\nprint(frequency)\nprint(max(frequency, key=frequency.get))',
+    options: [
+      { label: "A", text: "{'h': 1, 'e': 1, 'l': 2, 'o': 1}\\nl" },
+      { label: "B", text: "{'h': 1, 'e': 1, 'l': 2, 'o': 1}\\n2" },
+      { label: "C", text: "{'h': 1, 'e': 1, 'l': 1, 'o': 1}\\nh" },
+      { label: "D", text: "{'hello': 1}\\nhello" },
+    ],
+    correctAnswer: "A",
+    explanation:
+      "The code counts character frequencies using dict.get(key, default):\n\n• 'h': frequency.get('h', 0) + 1 = 0 + 1 = 1\n• 'e': frequency.get('e', 0) + 1 = 0 + 1 = 1\n• 'l': first time → 1, second time → 2\n• 'o': frequency.get('o', 0) + 1 = 0 + 1 = 1\n\nfrequency = {'h': 1, 'e': 1, 'l': 2, 'o': 1}\n\nmax(frequency, key=frequency.get) returns the key with the highest value → 'l' (value 2)\n\nOutput:\n{'h': 1, 'e': 1, 'l': 2, 'o': 1}\nl\n\nOption A is correct.",
+    chapter: "Python - Dictionaries & Frequency Counting",
+    source: "prepared",
+    topic: "Dictionaries",
+  },
+  {
+    id: "prep-cse-19",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 19,
+    questionText:
+      "What is the output of the following Python code?\n\nt = (1, 2, 3, 4, 5)\nprint(t[1:4])\nprint(t.count(3))\nprint(t.index(4))",
+    options: [
+      { label: "A", text: "(2, 3, 4)\\n1\\n3" },
+      { label: "B", text: "[2, 3, 4]\\n1\\n3" },
+      { label: "C", text: "(2, 3, 4)\\n1\\n4" },
+      { label: "D", text: "(1, 2, 3)\\n1\\n3" },
+    ],
+    correctAnswer: "A",
+    explanation:
+      "t = (1, 2, 3, 4, 5)\n\n• t[1:4] → elements at indices 1, 2, 3 → (2, 3, 4)\n  Note: slicing a tuple returns a tuple, not a list.\n\n• t.count(3) → number of times 3 appears → 1\n\n• t.index(4) → index of first occurrence of 4 → 3\n  (t[0]=1, t[1]=2, t[2]=3, t[3]=4)\n\nOutput:\n(2, 3, 4)\n1\n3\n\nOption A is correct.",
+    chapter: "Python - Tuples & Tuple Methods",
+    source: "prepared",
+    topic: "Tuples",
+  },
+  {
+    id: "prep-cse-20",
+    year: 2025,
+    section: "apt-cse",
+    part: "B",
+    questionNumber: 20,
+    questionText:
+      "Which of the following statements about Python tuples is correct?",
+    options: [
+      { label: "A", text: "Tuples are mutable — elements can be changed after creation." },
+      { label: "B", text: "Tuples can be used as dictionary keys because they are immutable." },
+      { label: "C", text: "Tuples do not support indexing or slicing." },
+      { label: "D", text: "A tuple with one element is written as (5) without a comma." },
+    ],
+    correctAnswer: "B",
+    explanation:
+      "Tuples are immutable sequences in Python — once created, their elements cannot be changed.\n\n• Option A is wrong: Tuples are immutable, not mutable.\n• Option B is correct: Because tuples are immutable (and hashable if all elements are hashable), they can be used as dictionary keys. Lists cannot because they are mutable.\n• Option C is wrong: Tuples fully support indexing (t[0]) and slicing (t[1:3]).\n• Option D is wrong: A single-element tuple requires a trailing comma: (5,). Without the comma, (5) is just the integer 5 in parentheses.\n\nOption B is correct.",
+    chapter: "Python - Tuples: Properties & Usage",
+    source: "prepared",
+    topic: "Tuples",
+  },
+];
+
+// ============================================================
 // Combined Question Bank
 // ============================================================
 
@@ -1843,6 +2699,8 @@ export const allQuestions: Question[] = [
   ...snusat2026QuantitativeAptitude,
   ...apt2026Maths,
   ...apt2026Physics,
+  ...preparedChemistry,
+  ...preparedCSE,
 ];
 
 export const sectionLabels: Record<Question["section"], string> = {
@@ -1850,6 +2708,8 @@ export const sectionLabels: Record<Question["section"], string> = {
   "quantitative-aptitude": "Quantitative Aptitude",
   "apt-maths": "APT - Mathematics",
   "apt-physics": "APT - Physics",
+  "apt-chemistry": "APT - Chemistry",
+  "apt-cse": "APT - Computer Science",
 };
 
 export const partLabels: Record<Question["part"], string> = {
@@ -1867,4 +2727,11 @@ export function getQuestionsByYear(year: number): Question[] {
 
 export function getQuestionsByPart(part: Question["part"]): Question[] {
   return allQuestions.filter((q) => q.part === part);
+}
+
+export function getQuestionsBySource(source: "official" | "prepared"): Question[] {
+  if (source === "official") {
+    return allQuestions.filter((q) => !q.source || q.source === "official");
+  }
+  return allQuestions.filter((q) => q.source === source);
 }

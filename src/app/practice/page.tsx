@@ -5,22 +5,27 @@ import Link from "next/link";
 import {
   allQuestions,
   sectionLabels,
+  getQuestionsBySource,
   type Question,
 } from "@/data/questions";
 
 type FilterSection = Question["section"] | "all";
 type FilterYear = number | "all";
+type FilterSource = "all" | "official" | "prepared";
 
 export default function PracticePage() {
   const [selectedSection, setSelectedSection] = useState<FilterSection>("all");
   const [selectedYear, setSelectedYear] = useState<FilterYear>("all");
+  const [selectedSource, setSelectedSource] = useState<FilterSource>("all");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
   const [answered, setAnswered] = useState(false);
   const [stats, setStats] = useState({ correct: 0, wrong: 0, total: 0 });
 
   const filteredQuestions = useMemo(() => {
-    let qs = allQuestions;
+    let qs = selectedSource === "all"
+      ? allQuestions
+      : getQuestionsBySource(selectedSource);
     if (selectedSection !== "all") {
       qs = qs.filter((q) => q.section === selectedSection);
     }
@@ -28,13 +33,14 @@ export default function PracticePage() {
       qs = qs.filter((q) => q.year === selectedYear);
     }
     return qs;
-  }, [selectedSection, selectedYear]);
+  }, [selectedSection, selectedYear, selectedSource]);
 
   const question = filteredQuestions[currentIndex];
 
-  function handleFilterChange(section: FilterSection, year: FilterYear) {
+  function handleFilterChange(section: FilterSection, year: FilterYear, source?: FilterSource) {
     setSelectedSection(section);
     setSelectedYear(year);
+    if (source !== undefined) setSelectedSource(source);
     setCurrentIndex(0);
     setSelectedAnswer(null);
     setAnswered(false);
@@ -121,6 +127,22 @@ export default function PracticePage() {
           <div className="flex flex-wrap gap-4 items-center">
             <div>
               <label className="text-xs font-semibold text-gray-500 uppercase block mb-1">
+                Source
+              </label>
+              <select
+                value={selectedSource}
+                onChange={(e) =>
+                  handleFilterChange(selectedSection, selectedYear, e.target.value as FilterSource)
+                }
+                className="border border-gray-300 rounded-lg px-3 py-2 text-sm bg-white"
+              >
+                <option value="all">All Questions</option>
+                <option value="official">Previous Year (Official)</option>
+                <option value="prepared">Prepared Questions</option>
+              </select>
+            </div>
+            <div>
+              <label className="text-xs font-semibold text-gray-500 uppercase block mb-1">
                 Section
               </label>
               <select
@@ -179,7 +201,7 @@ export default function PracticePage() {
               {/* Question Header */}
               <div className="bg-[#0f2044] text-white px-6 py-3 flex items-center justify-between text-sm">
                 <span>
-                  {sectionLabels[question.section]} · {question.year}
+                  {sectionLabels[question.section]} · {question.source === "prepared" ? "Prepared" : question.year}
                 </span>
                 <span>
                   Question {currentIndex + 1} of {filteredQuestions.length}

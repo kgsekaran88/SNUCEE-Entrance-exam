@@ -48,7 +48,8 @@ export default function Home() {
             <span className="text-[#c8a951]">SNUCEE Entrance Exam</span>
           </h2>
           <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
-            Practice with real sample questions from SNUSAT &amp; APT papers.
+            Practice with real sample questions from SNUSAT &amp; APT papers,
+            plus expertly prepared Chemistry and Computer Science questions.
             Detailed explanations, timed mock tests, and instant feedback to
             help you ace the Shiv Nadar University Common Entrance Examination.
           </p>
@@ -110,9 +111,17 @@ export default function Home() {
                   <span className="font-medium">Physics</span>
                   <span className="text-[#1a3a6b] font-semibold">20 Qs · 30 min</span>
                 </div>
+                <div className="flex justify-between items-center py-2 border-b border-gray-200">
+                  <span className="font-medium">Chemistry</span>
+                  <span className="text-[#1a3a6b] font-semibold">20 Qs · 30 min</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-gray-200">
+                  <span className="font-medium">Computer Science</span>
+                  <span className="text-[#1a3a6b] font-semibold">20 Qs · 30 min</span>
+                </div>
                 <div className="flex justify-between items-center py-2">
-                  <span className="font-bold">Total</span>
-                  <span className="text-[#c8a951] font-bold">40 Qs · 60 min</span>
+                  <span className="font-bold">Subjects per student</span>
+                  <span className="text-[#c8a951] font-bold">2 subjects · 60 min</span>
                 </div>
               </div>
             </div>
@@ -128,7 +137,7 @@ export default function Home() {
               <div className="text-sm mt-1 text-gray-300">Total Marks</div>
             </div>
             <div className="bg-[#0a1628] text-white rounded-xl p-5 text-center">
-              <div className="text-3xl font-bold text-[#c8a951]">80</div>
+              <div className="text-3xl font-bold text-[#c8a951]">120</div>
               <div className="text-sm mt-1 text-gray-300">Questions</div>
             </div>
             <div className="bg-[#0a1628] text-white rounded-xl p-5 text-center">
@@ -184,26 +193,41 @@ export default function Home() {
       <section className="py-16 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-3xl font-bold text-[#0a1628] mb-8">Question Bank</h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
             <div className="p-4">
               <div className="text-4xl font-bold text-[#1a3a6b]">20</div>
               <div className="text-sm text-gray-500 mt-1">Logical Reasoning</div>
+              <div className="text-xs text-gray-400">Official</div>
             </div>
             <div className="p-4">
               <div className="text-4xl font-bold text-[#1a3a6b]">20</div>
               <div className="text-sm text-gray-500 mt-1">Quantitative Aptitude</div>
+              <div className="text-xs text-gray-400">Official</div>
             </div>
             <div className="p-4">
               <div className="text-4xl font-bold text-[#1a3a6b]">20</div>
               <div className="text-sm text-gray-500 mt-1">APT Mathematics</div>
+              <div className="text-xs text-gray-400">Official</div>
             </div>
             <div className="p-4">
               <div className="text-4xl font-bold text-[#1a3a6b]">20</div>
               <div className="text-sm text-gray-500 mt-1">APT Physics</div>
+              <div className="text-xs text-gray-400">Official</div>
+            </div>
+            <div className="p-4">
+              <div className="text-4xl font-bold text-[#c8a951]">20</div>
+              <div className="text-sm text-gray-500 mt-1">APT Chemistry</div>
+              <div className="text-xs text-[#c8a951]">Prepared</div>
+            </div>
+            <div className="p-4">
+              <div className="text-4xl font-bold text-[#c8a951]">20</div>
+              <div className="text-sm text-gray-500 mt-1">APT Computer Science</div>
+              <div className="text-xs text-[#c8a951]">Prepared</div>
             </div>
           </div>
           <p className="text-gray-500 mt-4">
-            80 unique questions from SNUSAT &amp; APT sample papers (2025–2026)
+            120 questions — 80 from official SNUSAT &amp; APT sample papers (2025–2026)
+            + 40 prepared questions for Chemistry &amp; Computer Science
           </p>
         </div>
       </section>
@@ -212,8 +236,9 @@ export default function Home() {
       <footer className="bg-[#0a1628] text-white py-8 px-4 mt-auto">
         <div className="max-w-6xl mx-auto text-center">
           <p className="text-gray-400 text-sm">
-            This is an unofficial practice tool. Questions are sourced from
-            publicly available SNUSAT &amp; APT sample papers.
+            This is an unofficial practice tool. Official questions are sourced from
+            publicly available SNUSAT &amp; APT sample papers. Prepared questions are
+            based on the official SNU syllabus.
           </p>
           <p className="text-gray-500 text-xs mt-2">
             Not affiliated with Shiv Nadar University

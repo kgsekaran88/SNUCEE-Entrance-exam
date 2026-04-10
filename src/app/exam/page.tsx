@@ -5,11 +5,13 @@ import Link from "next/link";
 import {
   allQuestions,
   sectionLabels,
+  getQuestionsBySource,
   type Question,
 } from "@/data/questions";
 
 type ExamState = "setup" | "running" | "finished";
 type FilterYear = number | "all";
+type ExamMode = "previous-year" | "full-practice";
 
 const TOTAL_TIME_SECONDS = 2 * 60 * 60; // 2 hours
 const MARKS_CORRECT = 1.25;
@@ -36,6 +38,7 @@ function shuffleArray<T>(arr: T[]): T[] {
 export default function ExamPage() {
   const [examState, setExamState] = useState<ExamState>("setup");
   const [selectedYear, setSelectedYear] = useState<FilterYear>("all");
+  const [examMode, setExamMode] = useState<ExamMode>("full-practice");
   const [questions, setQuestions] = useState<Question[]>([]);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -44,10 +47,15 @@ export default function ExamPage() {
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const startExam = useCallback(() => {
-    let qs =
-      selectedYear === "all"
-        ? allQuestions
-        : allQuestions.filter((q) => q.year === selectedYear);
+    let qs: Question[];
+    if (examMode === "previous-year") {
+      qs = getQuestionsBySource("official");
+    } else {
+      qs = allQuestions;
+    }
+    if (selectedYear !== "all") {
+      qs = qs.filter((q) => q.year === selectedYear);
+    }
     qs = shuffleArray(qs);
     setQuestions(qs);
     setAnswers({});
@@ -55,7 +63,7 @@ export default function ExamPage() {
     setTimeLeft(TOTAL_TIME_SECONDS);
     setMarkedForReview(new Set());
     setExamState("running");
-  }, [selectedYear]);
+  }, [selectedYear, examMode]);
 
   // Timer
   useEffect(() => {
@@ -157,6 +165,20 @@ export default function ExamPage() {
             <div className="space-y-6">
               <div>
                 <label className="text-sm font-semibold text-gray-600 block mb-2">
+                  Exam Mode
+                </label>
+                <select
+                  value={examMode}
+                  onChange={(e) => setExamMode(e.target.value as ExamMode)}
+                  className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm"
+                >
+                  <option value="full-practice">Full Practice (All Questions – Official + Prepared)</option>
+                  <option value="previous-year">Previous Year Only (Official Papers)</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="text-sm font-semibold text-gray-600 block mb-2">
                   Question Set
                 </label>
                 <select
@@ -168,9 +190,9 @@ export default function ExamPage() {
                   }
                   className="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm"
                 >
-                  <option value="all">All Questions (80 Qs – Shuffled)</option>
-                  <option value="2025">2025 Paper (40 Qs)</option>
-                  <option value="2026">2026 Paper (40 Qs)</option>
+                  <option value="all">All Questions (Shuffled)</option>
+                  <option value="2025">2025 Paper</option>
+                  <option value="2026">2026 Paper</option>
                 </select>
               </div>
 
@@ -411,7 +433,7 @@ export default function ExamPage() {
             {/* Question header bar */}
             <div className="bg-[#0f2044] text-white px-6 py-3 flex items-center justify-between text-sm">
               <span>
-                {sectionLabels[question.section]} · {question.year}
+                {sectionLabels[question.section]} · {question.source === "prepared" ? "Prepared" : question.year}
               </span>
               <span>
                 Question {currentIndex + 1} of {questions.length}
